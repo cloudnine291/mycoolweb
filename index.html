@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elvis Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #1a1a1a;
+    }
+
+    .glow-text {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #00ffff, #00ccff, #00ffff);
+      background-size: 200% auto;
+      color: #fff;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowText 3s linear infinite;
+    }
+
+    @keyframes glowText {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: #00ffff;
+      height: 2em;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid #00ffff;
+      width: fit-content;
+      margin: 0 auto;
+      animation: blink-caret 0.8s step-end infinite;
+    }
+
+    @keyframes blink-caret {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #00ffff; }
+    }
+
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      background-color: #181818;
+    }
+
+    .profile-image img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-right: 2rem;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    }
+
+    .bio-text {
+      max-width: 600px;
+      font-family: 'Outfit', sans-serif;
+      color: #e6f1f6;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      letter-spacing: 0.5px;
+      word-spacing: 1px;
+    }
+
+    .contact {
+      background-color: #1e1e1e;
+      padding: 2rem;
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .contact h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #00ffff;
+    }
+
+    .contact a {
+      color: #00ccff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .next-page {
+      text-align: center;
+      padding: 2rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .next-button {
+      font-family: 'Outfit', sans-serif;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #00ffff, #00ccff);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .next-button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(90deg, #00ccff, #00ffff);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #00ffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .light-mode {
+      background-color: white;
+      color: black;
+    }
+
+    .light-mode header,
+    .light-mode .intro,
+    .light-mode .contact {
+      background-color: #f0f0f0;
+      color: #000;
+    }
+
+    .light-mode .subtitle {
+      color: #0077ff;
+      border-right-color: #0077ff;
+    }
+
+    .light-mode .contact a {
+      color: #0077ff;
+    }
+
+    .light-mode .theme-toggle {
+      background-color: #0077ff;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle">Toggle Theme</button>
+
+  <header>
+    <h1 class="glow-text">Elvis Mutai</h1>
+    <h2 class="subtitle" id="rotating-text"><strong>Freelancer</strong></h2>
+  </header>
+
+  <section class="intro">
+    <div class="profile-image">
+      <img src="20250516_180044.jpg" alt="Elvis Mutai" />
+    </div>
+    <div class="bio-text">
+      <p>Hello! I'm Elvis Mutai — a passionate and versatile freelancer with over <strong>5 years of experience</strong> in crafting stunning graphics, engaging content, and powerful digital strategies.</p>
+      <p>Whether you're looking to boost your brand, tell your story, or grow your online presence, I'm the creative partner you need. My work is all about results, quality, and a touch of visual magic.</p>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h3>📞 Let's Work Together</h3>
+    <p>Phone: <strong>0786880050</strong></p>
+    <p>Instagram: <a href="https://instagram.com/interfacelvis" target="_blank">@interfacelvis</a></p>
+  </section>
+
+  <section class="next-page">
+    <a href="portfolio.html" class="next-button">See My Work →</a>
+  </section>
+
+  <script>
+    // Theme toggle functionality
+    const toggleBtn = document.querySelector('.theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    // Animated typing loop for subtitle
+    const roles = [
+      "Freelancer",
+      "Blogger",
+      "Digital Marketer",
+      "Graphic Designer",
+      "Online Writer"
+    ];
+    let roleIndex = 0;
+    const textElement = document.getElementById("rotating-text");
+
+    function typeWriterEffect(text, i = 0) {
+      if (i <= text.length) {
+        textElement.innerHTML = `<strong>${text.slice(0, i)}</strong>`;
+        setTimeout(() => typeWriterEffect(text, i + 1), 100);
+      } else {
+        setTimeout(() => {
+          roleIndex = (roleIndex + 1) % roles.length;
+          typeWriterEffect(roles[roleIndex]);
+        }, 1500);
+      }
+    }
+
+    typeWriterEffect(roles[roleIndex]);
+  </script>
+
+</body>
+</html>
